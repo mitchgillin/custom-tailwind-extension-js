@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Contest",
+  "version": "1.0",
+  "description": "Tests Custom color theme extension",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://tailwindcss.com/*"
+  ],
+  "background": {
+    "service_worker": "background.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://tailwindcss.com/*"],
+      "js": ["content.ts"],
+      "css": ["popup/base.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "public/icon/icon_16.png",
+      "48": "public/icon/icon_48.png"
+    }
+  },
+  "icons": {
+    "16": "public/icon/icon_16.png",
+    "48": "public/icon/icon_48.png"
+  }
+}
+
